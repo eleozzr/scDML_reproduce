@@ -27,13 +27,7 @@ parser.add_argument("--savedir",type=str,required=True,help="where to save data"
 parser.add_argument("--save",type=bool,default=True,help="whether to save data")
 print("method=",method)
 args=parser.parse_args()
-####################################
-#################################### DEBUG #################################
-# args.dataset="4batch_4celltype_multi"
-# args.filepath="/Users/xiaokangyu/Desktop/单细胞学习/单细胞数据集/splatter_sim/"
-# args.savedir="/Users/xiaokangyu/Desktop/tDCA_project/evaluation/"
 
-####################################
 print("dataset=",args.dataset)
 dataset=args.dataset
 filepath=args.filepath
@@ -50,25 +44,36 @@ print("read data cost",time()-x0,"s")
 if not os.path.exists(sc.settings.figdir):
     os.makedirs(sc.settings.figdir)
 
-#sc.pp.filter_genes(adata, min_counts=3)
+sc.pp.filter_genes(adata, min_counts=3)
 adata.layers["counts"] = adata.X.copy() # preserve counts
 sc.pp.normalize_total(adata, target_sum=1e4)
 sc.pp.log1p(adata)
 adata.raw = adata # freeze the state in `.raw`
-sc.pp.highly_variable_genes(
-    adata,
-    n_top_genes=1000,
-    subset=True,
-    layer="counts",
-    batch_key="BATCH"
-)
+
+if(dataset=="heart_140"): # sc.pp.hvg==bug
+    sc.pp.highly_variable_genes(
+        adata,
+        n_top_genes=2000,
+        subset=True,
+        layer="counts",
+        flavor="seurat_v3",
+    )
+else:
+    sc.pp.highly_variable_genes(
+        adata,
+        n_top_genes=2000,
+        subset=True,
+        layer="counts",
+        flavor="seurat_v3",
+        batch_key="BATCH"
+    )
+    
 # scvi.model.SCVI.setup_anndata(
 #     adata,
 #     layer="counts",
 #     batch_key="BATCH",
 # )
 scvi.data.setup_anndata(adata, layer="counts", batch_key="BATCH")
-
 
 model = scvi.model.SCVI(adata)
 print(model)

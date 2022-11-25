@@ -43,7 +43,6 @@ dataset_path=filepath+"/"+dataset+"_raw.h5ad"#
 adata=sc.read(dataset_path)
 #print("read data cost",time()-x0,"s")
 
-## 还需要创建文件夹
 if not os.path.exists(sc.settings.figdir):
     os.makedirs(sc.settings.figdir)
 #

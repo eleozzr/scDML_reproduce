@@ -38,11 +38,10 @@ save=args.save
 save_figdir=savedir
 
 sc.settings.figdir=save_figdir+dataset+"/"+method+"/"
-dataset_path=filepath+"/"+dataset+"_raw.h5ad"# 目前不用加入raw
+dataset_path=filepath+"/"+dataset+"_raw.h5ad"
 adata=sc.read(dataset_path)
 print("read data cost",time()-x0,"s")
 
-## 还需要创建文件夹
 if not os.path.exists(sc.settings.figdir):
     os.makedirs(sc.settings.figdir)
 
@@ -53,7 +52,7 @@ if issubclass(type(adata.X), scipy.sparse.csc.csc_matrix):
 ####log1p
 sc.pp.normalize_total(adata, target_sum=1e4)
 sc.pp.log1p(adata)
-sc.pp.highly_variable_genes(adata, n_top_genes=1000, subset = True)
+sc.pp.highly_variable_genes(adata, n_top_genes=2000, subset = True)
 sc.tl.pca(adata)
 
 bbknn.bbknn(adata, batch_key='BATCH')

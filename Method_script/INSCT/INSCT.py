@@ -39,11 +39,10 @@ save=args.save
 save_figdir=savedir
 
 sc.settings.figdir=save_figdir+dataset+"/"+method+"/"
-dataset_path=filepath+"/"+dataset+"_raw.h5ad"# 目前不用加入raw
+dataset_path=filepath+"/"+dataset+"_raw.h5ad"
 adata_insct=sc.read(dataset_path)
 #print("read data cost",time()-x0,"s")
 
-## 还需要创建文件夹
 if not os.path.exists(sc.settings.figdir):
     os.makedirs(sc.settings.figdir)
 
@@ -59,44 +58,7 @@ sc.pp.highly_variable_genes(adata_insct, n_top_genes=1000, subset = True)
 sc.tl.pca(adata_insct)
 #print("preprocess dataset total cost",time()-x0,"s")
 
-# if(save):
-#     print("saving preprocessed_dataset data to file")
-#     write_path=savedir+dataset+"/"+method+"/"+dataset+"_"+method+"_preprocessed.h5ad"
-#     adata_insct.write(write_path)
-    #############################判断存储结果的文件夹是否存在，如果不存在，则创建##########
-#     #pdb.set_trace()
-#     temp_dir = os.path.join(os.getcwd(), "../dataset/preprocessed_dataset/"+dataset+"/"+method+"/")
-#     if not os.path.exists(temp_dir): 
-#         os.makedirs(temp_dir)
-#     temp_dir = os.path.join(os.getcwd(), "../dataset/corrected_dataset/"+dataset+"/"+method+"/")
-#     if not os.path.exists(temp_dir): 
-#         os.makedirs(temp_dir)
-#     temp_dir = os.path.join(os.getcwd(), "../result/"+dataset+"/"+method+"/")
-#     if not os.path.exists(temp_dir): 
-#         os.makedirs(temp_dir)
-    ################################################################################
 
-#     with open(write_path,"wb") as f:  # Python 3: open(..., 'rb')
-#         pickle.dump(adata_ls, f)
-
-############################ embedding 32维###############################
-# model=TNN(k=20,embedding_dims = 32)
-# model.fit(X = adata_insct, batch_name = "BATCH", shuffle_mode = True)
-# adata_insct.obsm['X_insct'] = model.transform(adata_insct)
-
-# adata_corrected=sc.AnnData(adata_insct.obsm['X_insct'])
-# adata_corrected.obs['BATCH'] =adata_insct.obs["BATCH"].values
-# adata_corrected.obs['celltype'] = adata_insct.obs["celltype"].values
-# print(adata_corrected)
-# print("======================Visulization after Batch Effect Corecttion using INSCT=============================")
-# sc.tl.pca(adata_corrected)
-# sc.pp.neighbors(adata_corrected)
-# sc.tl.umap(adata_corrected)
-# sc.pl.umap(adata_corrected,color=["BATCH","celltype"],save="_"+dataset+"_"+method+"_corrected.png")
-# adata_corrected.write(savedir+dataset+"/"+method+"/"+dataset+"_"+method+"_corrected.h5ad")
-
-
-############################ embedding 2维 ################################
 model=TNN(k=20)
 model.fit(X = adata_insct, batch_name = "BATCH", shuffle_mode = True)
 adata_insct.obsm['X_insct'] = model.transform(adata_insct)
