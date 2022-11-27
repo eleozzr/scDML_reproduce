@@ -22,7 +22,8 @@ Here we compared 9 popular methods with scDML.
 | BERMUDA   | -       | https://github.com/txWang/BERMUDA                            | (Wang et al., 2019)      |
 | BBKNN     | 1.5.1   | https://github.com/Teichlab/bbknn                            | (Polański et al., 2020)  |
 | Scanorama | 1.7.2   | https://github.com/brianhie/scanorama                        | (Hie et al., 2019)       |
-| scVI      | 0.81    | https://github.com/scverse/scvi-tools                        | (Lopez et al., 2018)     |
+| scVI      | 0.8.1   | https://github.com/scverse/scvi-tools                        | (Lopez et al., 2018)     |
+| CarDEC    | 1.0.3   | https://github.com/jlakkis/CarDEC                            | (Lakkis et al, 2021)     |
 
 
 ## Directory description
@@ -38,20 +39,23 @@ Here we compared 9 popular methods with scDML.
 
 # Reference 
 
-Hie,B. **et al.** (2019) Efficient integration of heterogeneous single-cell transcriptomes using Scanorama. **Nat. Biotechnol.**, ***\*37\****, 685–691.
+Hie,B. **et al.** (2019) Efficient integration of heterogeneous single-cell transcriptomes using Scanorama. **Nat. Biotechnol.**, **37**, 685–691.
 
-Korsunsky,I. **et al.** (2019) Fast, sensitive and accurate integration of single-cell data with Harmony. **Nat. Methods**, ***\*16\****, 1289–1296.
+Korsunsky,I. **et al.** (2019) Fast, sensitive and accurate integration of single-cell data with Harmony. **Nat. Methods**, **16**, 1289–1296.
 
-Lopez,R. **et al.** (2018) Deep generative modeling for single-cell transcriptomics. **Nat. Methods**, ***\*15\****, 1053–1058.
+Lopez,R. **et al.** (2018) Deep generative modeling for single-cell transcriptomics. **Nat. Methods**, **15**, 1053–1058.
 
 Lun Aaron (2019) A description of the theory behind the fastMNN. **https://marionilab.github.io/FurtherMNN2018/theory/description.html**.
 
-Polański,K. **et al.** (2020) BBKNN: fast batch alignment of single cell transcriptomes. **Bioinformatics**, ***\*36\****, 964–965.
+Polański,K. **et al.** (2020) BBKNN: fast batch alignment of single cell transcriptomes. **Bioinformatics**, **36**, 964–965.
 
-Simon,L.M. **et al.** (2021) Integration of millions of transcriptomes using batch-aware triplet neural networks. **Nat. Mach. Intell.**, ***\*3\****, 705–715.
+Simon,L.M. **et al.** (2021) Integration of millions of transcriptomes using batch-aware triplet neural networks. **Nat. Mach. Intell.**, **3**, 705–715.
 
-Stuart,T. **et al.** (2019) Comprehensive Integration of Single-Cell Data. **Cell**, ***\*177\****, 1888-1902.e21.
+Stuart,T. **et al.** (2019) Comprehensive Integration of Single-Cell Data. **Cell**, *177*, 1888-1902.e21.
 
-Wang,T. **et al.** (2019) BERMUDA: a novel deep transfer learning method for single-cell RNA sequencing batch correction reveals hidden high-resolution cellular subtypes. **Genome Biol.**, ***\*20\****, 165.
+Wang,T. **et al.** (2019) BERMUDA: a novel deep transfer learning method for single-cell RNA sequencing batch correction reveals hidden high-resolution cellular subtypes. **Genome Biol.**, **20**, 165.
 
 Welch,J.D. **et al.** (2019) Single-Cell Multi-omic Integration Compares and Contrasts Features of Brain Cell Identity. **Cell**, ***\*177\****, 1873-1887.e17.
+
+Lakkis J, **et al.** (2021) A joint deep learning model enables simultaneous batch effect correction, denoising, and clustering in single-cell transcriptomics. **Genome Res**. 31(10):1753-1766.
+
