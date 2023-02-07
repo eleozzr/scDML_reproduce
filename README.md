@@ -30,7 +30,7 @@ Here we compared 9 popular methods with scDML.
 
 - `Method_script`: python script or R script for different methods  
 - `Bash_script`: bash script to run all methods on a dataset  
-- `data_used`: all data analyzed in scDML manuscript. Here we only provide two datasets [Mammary epithelial cells (bct_raw.zip)](./data_used/bct_raw.zip) and  [macaque_retina (macaque_raw.zip)](./data_used/macaque_raw.zip). And the full dataset will be available from [10.6084/m9.figshare.20499630](10.6084/m9.figshare.20499630)).
+- `data_used`: all data analyzed in scDML manuscript. Here we only provide two datasets [Mammary epithelial cells (bct_raw.zip)](./data_used/bct_raw.zip) and  [macaque_retina (macaque_raw.zip)](./data_used/macaque_raw.zip). And the full dataset will be available from [https://doi.org/10.6084/m9.figshare.20499630.v2](https://doi.org/10.6084/m9.figshare.20499630.v2)).
 
 - `Method_evaluation`: jupyter notebooks of evaluation for all methods on different datasets.
 
